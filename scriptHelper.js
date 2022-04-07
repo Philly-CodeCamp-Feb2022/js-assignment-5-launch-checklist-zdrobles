@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+// require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     document.innerHTML = `
                 <h2>Mission Destination</h2>
@@ -59,12 +59,13 @@ async function myFetch() {
 
 const pickPlanet = planets => planets[Math.floor(Math.random() * planets.length)]
 
+export { myFetch, formSubmission, addDestinationInfo, pickPlanet };
 
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet;
-module.exports.myFetch = myFetch;
+// module.exports.addDestinationInfo = addDestinationInfo;
+// module.exports.validateInput = validateInput;
+// module.exports.formSubmission = formSubmission;
+// module.exports.pickPlanet = pickPlanet;
+// module.exports.myFetch = myFetch;
 
 // module.exports = {
 //     addDestinationInfo: addDestinationInfo,
