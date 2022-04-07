@@ -1,18 +1,19 @@
-// const helper = require('./scriptHelper');
-import { myFetch, formSubmission, addDestinationInfo, pickPlanet } from './scriptHelper.js';
+const removeHelper = require('./scriptHelper');//comment this out and uncomment the import below to get this working in your browser. Also, must delete 'removeHelper.' from the lines: 8, 16, and 33.
+// import { myFetch, formSubmission, addDestinationInfo, pickPlanet } from './scriptHelper.js';
 
-// console.log('https://replit.com/@ZacharyRobles1/Assignment5-witho-module-exports#script.js');
+// console.log('See this working in one file:', 'https://replit.com/@ZacharyRobles1/Assignment5-witho-module-exports#script.js');
 window.addEventListener("load", () => {
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    let listedPlanetsResponse = myFetch();
+    let listedPlanetsResponse = removeHelper.myFetch();//delete removeHelper.
     listedPlanetsResponse.then(result => {
         listedPlanets = result;
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
         let form = document.querySelector("form");
         let destination = document.getElementById('missionTarget');
-        let planet = pickPlanet(listedPlanets);
+
+        let planet = removeHelper.pickPlanet(listedPlanets);//delete removeHelper.
         addDestinationInfo(destination, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image);
 
         form.addEventListener('submit', event => {
@@ -29,7 +30,7 @@ window.addEventListener("load", () => {
                 cargo: 'low enough'
             };
 
-            formSubmission(event, faultyDiv, list, pilot.value, copilot.value, fuelLevel.value, cargoMass.value);
+            removeHelper.formSubmission(event, faultyDiv, list, pilot.value, copilot.value, fuelLevel.value, cargoMass.value);//delete removeHelper.
 
         });//end form Submit
     })//end lPR.then
